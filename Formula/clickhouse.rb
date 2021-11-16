@@ -1,10 +1,12 @@
 class Clickhouse < Formula
   desc "Free analytics DBMS for big data with SQL interface"
   homepage "https://clickhouse.com"
-  url "https://github.com/ClickHouse/ClickHouse/releases/download/v21.11.3.6-stable/ClickHouse_sources_with_submodules.tar.gz"
-  sha256 "fab69e80b1fe2a8b74fe9f3fe5c15d1c938a53aa501579e87dd619a06811688a"
+  url "https://github.com/ClickHouse/ClickHouse.git",
+    tag:      "v21.11.4.14-stable",
+    revision: "fa7b988bda03151a5e863b03dd444756ef41cd0f"
   license "Apache-2.0"
-  head "https://github.com/ClickHouse/ClickHouse.git", branch: "master"
+  head "https://github.com/ClickHouse/ClickHouse.git",
+    branch:   "master"
 
   depends_on "cmake" => :build
   depends_on "gawk" => :build
@@ -47,12 +49,31 @@ class Clickhouse < Formula
     system "cmake", "-S", ".", "-B", "./build", "-G", "Ninja", *cmake_args
     system "cmake", "--build", "./build", "--config", "RelWithDebInfo", "--target", "clickhouse", "--parallel"
 
-    system "./build/programs/clickhouse", "install", "--prefix", HOMEBREW_PREFIX, "--binary-path", prefix/"bin"
+    system "./build/programs/clickhouse", "install", "--prefix", HOMEBREW_PREFIX, "--binary-path", prefix/"bin",
+      "--user", "", "--group", ""
+
+    Dir.glob([
+      etc/"clickhouse-server/**/*",
+      var/"run/clickhouse-server/**/*",
+      var/"log/clickhouse-server/**/*",
+    ]) do |file|
+      chmod 0664, file
+      chmod "a+x", file if File.directory?(file)
+    end
   end
 
   def post_install
+    Dir.glob([
+      etc/"clickhouse-server/**/*",
+      var/"run/clickhouse-server/**/*",
+      var/"log/clickhouse-server/**/*",
+    ]) do |file|
+      chmod 0640, file
+      chmod "ug+x", file if File.directory?(file)
+    end
+
     # Make sure the data directories are initialized.
-    system opt_bin/"clickhouse", "start", "--prefix", HOMEBREW_PREFIX, "--binary-path", opt_bin
+    system opt_bin/"clickhouse", "start", "--prefix", HOMEBREW_PREFIX, "--binary-path", opt_bin, "--user", ""
     system opt_bin/"clickhouse", "stop", "--prefix", HOMEBREW_PREFIX
   end
 
@@ -64,8 +85,11 @@ class Clickhouse < Formula
             https://clickhouse.com/docs/en/operations/tips/
 
         - Increase the maximum number of open files limit in the system:
-            Linux: man limits.conf
             macOS: https://clickhouse.com/docs/en/development/build-osx/#caveats
+            Linux: man limits.conf
+
+        - Set the 'net_admin', 'ipc_lock', and 'sys_nice' capabilities on #{opt_bin}/clickhouse binary. If the capabilities are not set the taskstats accounting will be disabled. You can enable taskstats accounting by setting those capabilities manually later.
+            Linux: sudo setcap 'cap_net_admin,cap_ipc_lock,cap_sys_nice+ep' #{opt_bin}/clickhouse
 
         - By default, the pre-configured 'default' user has an empty password. Consider setting a real password for it:
             https://clickhouse.com/docs/en/operations/settings/settings-users/

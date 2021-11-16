@@ -1,6 +1,6 @@
 # ClickHouse Homebrew tap (by Altinity)
 
-## How do I install these formula?
+## How do I install these formulae?
 
 `brew install altinity/clickhouse/clickhouse`
 

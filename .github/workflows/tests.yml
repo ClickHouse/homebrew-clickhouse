@@ -8,8 +8,10 @@ jobs:
   test-bot:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+      # os: [ubuntu-latest, macos-latest]
+        os: [macos-latest]
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 600
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -26,6 +28,15 @@ jobs:
       - name: Install Homebrew Bundler RubyGems
         if: steps.cache.outputs.cache-hit != 'true'
         run: brew install-bundler-gems
+
+      - name: Adjust Git configuration
+        run: |
+          git lfs uninstall
+          git lfs uninstall --local
+          git lfs uninstall --system
+          git config --global submodule.recurse 1
+          git config --global fetch.parallel 10
+          git config --global submodule.fetchJobs 10
 
       - run: brew test-bot --only-cleanup-before
 
