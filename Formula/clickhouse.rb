@@ -8,6 +8,11 @@ class Clickhouse < Formula
   head "https://github.com/ClickHouse/ClickHouse.git",
     branch:   "master"
 
+  bottle do
+    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse-21.11.4.14"
+    sha256 big_sur: "9b8b9e09b1900b4b73b140cf36f04083e2539919e27ef6609db37522df45f274"
+  end
+
   depends_on "cmake" => :build
   depends_on "gawk" => :build
   depends_on "gettext" => :build
