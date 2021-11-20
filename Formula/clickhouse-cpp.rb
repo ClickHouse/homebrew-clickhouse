@@ -6,7 +6,7 @@ class ClickhouseCpp < Formula
     revision: "1415b5936a2ac2f084850b09057e05fb5798b2f1"
   license "Apache-2.0"
   head "https://github.com/ClickHouse/clickhouse-cpp.git",
-    branch: "master"
+    branch:   "master"
 
   bottle do
     root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse-cpp-1.5.0"
