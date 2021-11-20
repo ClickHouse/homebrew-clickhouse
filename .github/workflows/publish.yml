@@ -23,7 +23,7 @@ jobs:
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
         with:
-          HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           token: ${{ github.token }}
           branch: main
 
