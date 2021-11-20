@@ -2,15 +2,18 @@ class ClickhouseOdbc < Formula
   desc "Official ODBC driver implementation for accessing ClickHouse as a data source"
   homepage "https://github.com/ClickHouse/clickhouse-odbc#readme"
   url "https://github.com/ClickHouse/clickhouse-odbc.git",
-      tag:      "v1.1.10.20210822",
-      revision: "c7aaff6860e448acee523f5f7d3ee97862fd07d2"
+    tag:      "v1.1.10.20210822",
+    revision: "c7aaff6860e448acee523f5f7d3ee97862fd07d2"
   license "Apache-2.0"
-  head "https://github.com/ClickHouse/clickhouse-odbc.git", branch: "master"
+  head "https://github.com/ClickHouse/clickhouse-odbc.git",
+    branch:   "master"
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
+
+  option "with-static-runtime", "Link with the compiler and language runtime statically"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -43,9 +46,24 @@ class ClickhouseOdbc < Formula
       cmake_args << "-DODBC_DIR=#{Formula["unixodbc"].opt_prefix}"
     end
 
+    cmake_args << "-DCH_ODBC_RUNTIME_LINK_STATIC=ON" if build.with? "static-runtime"
+
     system "cmake", "-S", ".", "-B", "build", *cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+  end
+
+  def caveats
+    <<~EOS
+      Make sure to manually configure driver and data source names to point to the installed binaries. See #{opt_share}/doc/clickhouse-odbc/config/odbc.ini.sample and #{opt_share}/doc/clickhouse-odbc/config/odbcinst.ini.sample for a sample configuration.
+        ANSI driver:    #{opt_lib/shared_library("libclickhouseodbc")}
+        Unicode driver: #{opt_lib/shared_library("libclickhouseodbcw")}
+
+      If you intend to use ClickHouse ODBC driver with Tableau Desktop, consider using it together with ClickHouse ODBC Tableau connector. See https://github.com/Altinity/clickhouse-tableau-connector-odbc for more info.
+
+      If you intend to use ClickHouse ODBC driver with Tableau Server in Linux, you need to install a variant of the driver that is linked with the compiler and language runtime statically:
+        brew install --with-static-runtime altinity/clickhouse/clickhouse-odbc
+    EOS
   end
 
   test do
