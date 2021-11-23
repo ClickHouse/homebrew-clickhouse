@@ -2,8 +2,8 @@ class ClickhouseCpp < Formula
   desc "C++ client library for ClickHouse"
   homepage "https://github.com/ClickHouse/clickhouse-cpp#readme"
   url "https://github.com/ClickHouse/clickhouse-cpp.git",
-    tag:      "1.5.0",
-    revision: "1415b5936a2ac2f084850b09057e05fb5798b2f1"
+    tag:      "v2.0.0",
+    revision: "408ce18b46eb14c7c4a9d8bbee2584f939861f5a"
   license "Apache-2.0"
   head "https://github.com/ClickHouse/clickhouse-cpp.git",
     branch:   "master"
@@ -16,6 +16,7 @@ class ClickhouseCpp < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "abseil"
+  depends_on "openssl@1.1"
 
   on_linux do
     depends_on "gcc"
@@ -25,7 +26,8 @@ class ClickhouseCpp < Formula
   fails_with gcc: "6"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+      "-DWITH_OPENSSL=ON", "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
