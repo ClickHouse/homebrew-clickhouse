@@ -9,9 +9,8 @@ class ClickhouseCpp < Formula
     branch:   "master"
 
   bottle do
-    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse-cpp-1.5.0"
-    rebuild 2
-    sha256 cellar: :any, big_sur: "a3711208a6d3d70739c089a1f7156b97291d6e608ff93a682769bf08b40e1d32"
+    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse-cpp-2.0.0"
+    sha256 cellar: :any, big_sur: "3ad9357e35d8f67557ac68cadba3db2277c3d9236bfb82d3ebb32d7057e191fe"
   end
 
   depends_on "cmake" => [:build, :test]
