@@ -25,8 +25,15 @@ class ClickhouseCpp < Formula
   fails_with gcc: "6"
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-      "-DWITH_OPENSSL=ON", "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}", *std_cmake_args
+    cmake_args = std_cmake_args.dup
+
+    cmake_args.reject! { |x| x.start_with?("-DCMAKE_BUILD_TYPE=") }
+    cmake_args << "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
+
+    cmake_args << "-DWITH_OPENSSL=ON"
+    cmake_args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}"
+
+    system "cmake", "-S", ".", "-B", "build", *cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
