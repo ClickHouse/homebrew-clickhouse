@@ -41,6 +41,9 @@ class ClickhouseOdbc < Formula
   def install
     cmake_args = std_cmake_args.dup
 
+    cmake_args.reject! { |x| x.start_with?("-DCMAKE_BUILD_TYPE=") }
+    cmake_args << "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
+
     cmake_args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}"
     cmake_args << "-DICU_ROOT=#{Formula["icu4c"].opt_prefix}"
 
