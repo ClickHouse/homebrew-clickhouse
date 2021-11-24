@@ -6,13 +6,23 @@ on:
   pull_request:
 jobs:
   test-bot:
+    runs-on: [self-hosted, homebrew, '${{ matrix.os-type }}', '${{ matrix.os-gen }}', '${{ matrix.os-arch }}']
+    timeout-minutes: 600
     strategy:
       matrix:
-      # os: [ubuntu-latest, macos-latest]
-        os: [macos-latest]
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 600
+        include:
+          - os-type: macos
+            os-gen: monterey
+            os-arch: arm64
+
+          - os-type: macos
+            os-gen: monterey
+            os-arch: x64
+
     steps:
+      - name: Prepare workspace
+        run: rm -rf "${{ github.workspace }}/*"
+
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
@@ -29,15 +39,6 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: brew install-bundler-gems
 
-      - name: Adjust Git configuration
-        run: |
-          git lfs uninstall
-          git lfs uninstall --local
-          git lfs uninstall --system
-          git config --global submodule.recurse 1
-          git config --global fetch.parallel 10
-          git config --global submodule.fetchJobs 10
-
       - run: brew test-bot --only-cleanup-before
 
       - run: brew test-bot --only-setup
@@ -48,7 +49,7 @@ jobs:
         if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact
-        if: always() && github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@main
         with:
           name: bottles
