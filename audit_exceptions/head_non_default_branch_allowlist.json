@@ -1,3 +1,4 @@
 [
-    "clickhouse@21.11"
+    "clickhouse@21.11",
+    "clickhouse@21.12"
 ]
