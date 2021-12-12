@@ -2,16 +2,11 @@ class Clickhouse < Formula
   desc "Free analytics DBMS for big data with SQL interface"
   homepage "https://clickhouse.com"
   url "https://github.com/ClickHouse/ClickHouse.git",
-    tag:      "v21.11.4.14-stable",
-    revision: "fa7b988bda03151a5e863b03dd444756ef41cd0f"
+    tag:      "v21.11.6.7-stable",
+    revision: "534b23949e0ce94f645aa61a8e52f4dd24ef82d6"
   license "Apache-2.0"
   head "https://github.com/ClickHouse/ClickHouse.git",
     branch:   "master"
-
-  bottle do
-    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse-21.11.4.14"
-    sha256 big_sur: "9b8b9e09b1900b4b73b140cf36f04083e2539919e27ef6609db37522df45f274"
-  end
 
   depends_on "cmake" => :build
   depends_on "gawk" => :build
