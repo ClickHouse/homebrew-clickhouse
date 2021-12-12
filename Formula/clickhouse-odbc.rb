@@ -13,12 +13,6 @@ class ClickhouseOdbc < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  bottle do
-    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse-odbc-1.1.10.20210822"
-    rebuild 2
-    sha256 cellar: :any, big_sur: "13ddb78156b59c0a7692babdaf412baab50839a59ae71cd2bb3bfdec9ca83bc2"
-  end
-
   option "with-static-runtime", "Link with the compiler and language runtime statically"
 
   depends_on "cmake" => :build
