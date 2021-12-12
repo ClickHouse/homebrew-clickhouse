@@ -8,6 +8,13 @@ class ClickhouseCpp < Formula
   head "https://github.com/ClickHouse/clickhouse-cpp.git",
     branch:   "master"
 
+  bottle do
+    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse-cpp-2.0.0"
+    rebuild 2
+    sha256 cellar: :any, arm64_monterey: "56935932e12510d7fb578830fbdc1ba372282b7fb999c5bc9bc3a53880f3bdd8"
+    sha256 cellar: :any, monterey:       "7b90aae24118d73c901ab4ffac983e2a6298d794e87df561b69f3af90d8a5b5e"
+  end
+
   depends_on "cmake" => [:build, :test]
   depends_on "abseil"
   depends_on "openssl@1.1"
