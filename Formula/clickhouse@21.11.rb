@@ -3,7 +3,7 @@ class ClickhouseAT2111 < Formula
   homepage "https://clickhouse.com"
   url "https://github.com/ClickHouse/ClickHouse.git",
     tag:      "v21.11.6.7-stable",
-    revision: "fa7b988bda03151a5e863b03dd444756ef41cd0f"
+    revision: "534b23949e0ce94f645aa61a8e52f4dd24ef82d6"
   license "Apache-2.0"
   head "https://github.com/ClickHouse/ClickHouse.git",
     branch:   "21.11"
