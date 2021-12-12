@@ -39,6 +39,15 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: brew install-bundler-gems
 
+      - name: Adjust Git configuration
+        run: |
+          git lfs uninstall || true
+          git lfs uninstall --local || true
+          git lfs uninstall --system || true
+          git config --global submodule.recurse 1
+          git config --global fetch.parallel 10
+          git config --global submodule.fetchJobs 10
+
       - run: brew test-bot --only-cleanup-before
 
       - run: brew test-bot --only-setup

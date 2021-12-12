@@ -11,7 +11,7 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Set up git
+      - name: Set up Git
         uses: Homebrew/actions/git-user-config@master
 
       - name: Pull bottles
