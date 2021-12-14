@@ -6,6 +6,8 @@ class ClickhouseAT218AltinityStable < Formula
     revision: "d55fff4366695aca5f3f444817b5eae4ca66488c"
   license "Apache-2.0"
 
+  keg_only :versioned_formula
+
   depends_on "cmake" => :build
   depends_on "gawk" => :build
   depends_on "gettext" => :build
