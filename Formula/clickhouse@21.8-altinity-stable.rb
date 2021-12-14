@@ -6,6 +6,11 @@ class ClickhouseAT218AltinityStable < Formula
     revision: "d55fff4366695aca5f3f444817b5eae4ca66488c"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(21\.8(?:\.\d+)+)-altinity(?:stable|lts)$/i)
+  end
+
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
