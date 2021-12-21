@@ -116,6 +116,8 @@ class Clickhouse < Formula
     ]
     keep_alive true
     run_type :immediate
+    process_type :standard
+    root_dir var
     working_dir var
     log_path var/"log/clickhouse-server/stdout.log"
     error_log_path var/"log/clickhouse-server/stderr.log"
