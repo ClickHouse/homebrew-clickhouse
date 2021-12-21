@@ -15,6 +15,8 @@ class ClickhouseAT2111 < Formula
     sha256                               monterey:       "1c8ea3e754a7acb3927e6d5152bf8556a4e5d33baa8ba923da5361e34ddeb90c"
   end
 
+  keg_only :versioned_formula
+
   depends_on "cmake" => :build
   depends_on "gawk" => :build
   depends_on "gettext" => :build
