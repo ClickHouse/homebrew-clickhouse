@@ -8,6 +8,11 @@ class ClickhouseAT2112 < Formula
   head "https://github.com/ClickHouse/ClickHouse.git",
     branch:   "21.12"
 
+  livecheck do
+    url :stable
+    regex(/^v?(21\.12(?:\.\d+)+)-(?:stable|lts)$/i)
+  end
+
   bottle do
     root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse@21.12-21.12.1.9017-pre"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e2f9ead68568997378e635a0524ae904e5b3e204f7824d1301fdfb269d32ff5c"
