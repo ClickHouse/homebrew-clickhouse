@@ -131,8 +131,8 @@ Building the formulae from this tap is not tested in Linux, and bottles are not 
 
 ## Useful links
 
-[ClickHouse](https://clickhouse.com/)
-[ClickHouse C++ client library](https://github.com/ClickHouse/clickhouse-cpp)
-[ClickHouse ODBC driver](https://github.com/ClickHouse/clickhouse-odbc)
-[ClickHouse Tableau connector](https://github.com/Altinity/clickhouse-tableau-connector-odbc)
-[Homebrew](https://brew.sh)
+- [ClickHouse](https://clickhouse.com/)
+- [ClickHouse C++ client library](https://github.com/ClickHouse/clickhouse-cpp)
+- [ClickHouse ODBC driver](https://github.com/ClickHouse/clickhouse-odbc)
+- [ClickHouse Tableau connector](https://github.com/Altinity/clickhouse-tableau-connector-odbc)
+- [Homebrew](https://brew.sh)
