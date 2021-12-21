@@ -8,15 +8,23 @@ class ClickhouseAT2112 < Formula
   head "https://github.com/ClickHouse/ClickHouse.git",
     branch:   "21.12"
 
+  livecheck do
+    url :stable
+    regex(/^v?(21\.12(?:\.\d+)+)-(?:stable|lts)$/i)
+  end
+
   bottle do
     root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse@21.12-21.12.2.17"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e4ff570f01145bbd9f43286aea85c0dd54e1525cd31494a82ef5455fd50b34a3"
     sha256                               monterey:       "b15bca6edd4417ad23fea6e4481a5691fba5c7dc5d9bd5eff1da1afdb81bb82d"
   end
 
+  keg_only :versioned_formula
+
   depends_on "cmake" => :build
   depends_on "gawk" => :build
   depends_on "gettext" => :build
+  depends_on "git-lfs" => :build
   depends_on "libtool" => :build
   depends_on "ninja" => :build
   depends_on "perl" => :build
@@ -115,6 +123,8 @@ class ClickhouseAT2112 < Formula
     ]
     keep_alive true
     run_type :immediate
+    process_type :standard
+    root_dir var
     working_dir var
     log_path var/"log/clickhouse-server/stdout.log"
     error_log_path var/"log/clickhouse-server/stderr.log"

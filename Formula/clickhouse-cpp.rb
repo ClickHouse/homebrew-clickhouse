@@ -8,6 +8,11 @@ class ClickhouseCpp < Formula
   head "https://github.com/ClickHouse/clickhouse-cpp.git",
     branch:   "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse-cpp-2.0.0"
     rebuild 2
