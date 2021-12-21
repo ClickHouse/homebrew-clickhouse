@@ -9,9 +9,9 @@ class ClickhouseAT2112 < Formula
     branch:   "21.12"
 
   bottle do
-    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse@21.12-21.12.1.9017-pre"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2f9ead68568997378e635a0524ae904e5b3e204f7824d1301fdfb269d32ff5c"
-    sha256                               monterey:       "1cb7d38c2e1c56a5a2c6768fe9426240b037077679fa53d2cbced3f6fe350b3c"
+    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse@21.12-21.12.2.17"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e4ff570f01145bbd9f43286aea85c0dd54e1525cd31494a82ef5455fd50b34a3"
+    sha256                               monterey:       "b15bca6edd4417ad23fea6e4481a5691fba5c7dc5d9bd5eff1da1afdb81bb82d"
   end
 
   depends_on "cmake" => :build
