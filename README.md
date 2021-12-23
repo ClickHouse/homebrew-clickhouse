@@ -4,9 +4,9 @@
 
 ```text
 clickhouse        (alias for clickhouse@21.12, always points to the latest versioned formula)
-clickhouse-client (alias for clickhouse)
-clickhouse-server (alias for clickhouse)
-clickhouse@stable (alias for clickhouse)
+clickhouse-client (same as clickhouse)
+clickhouse-server (same as clickhouse)
+clickhouse@stable (same as clickhouse)
 
 clickhouse@21.12
 clickhouse@21.11 (keg-only)
