@@ -3,10 +3,11 @@
 ## Available formulae
 
 ```text
-clickhouse        (alias for clickhouse@21.12, always points to the latest versioned formula)
-clickhouse-client (same as clickhouse)
-clickhouse-server (same as clickhouse)
-clickhouse@stable (same as clickhouse)
+clickhouse                 (alias for clickhouse@21.12, always points to the latest versioned formula)
+clickhouse-client          (alias, same as clickhouse)
+clickhouse-server          (alias, same as clickhouse)
+clickhouse@stable          (alias, same as clickhouse)
+clickhouse@altinity-stable (alias for clickhouse@21.8-altinity-stable, always points to the latest Altinity stable versioned formula)
 
 clickhouse@21.12
 clickhouse@21.11 (keg-only)
@@ -40,11 +41,11 @@ brew install clickhouse@21.11
 # ...and so on.
 ```
 
-Please, always carefully read the `Caveats` sections, which is displayed after the installation.
+Please, always read the `Caveats` sections, which are displayed after the installation, carefully.
 
 Note, that the installation doesn't require `sudo` and will deploy ClickHouse under the standard Homebrew prefix.
 
-### Running ClickHouse server
+## Running ClickHouse server
 
 Do not use `sudo` ever. Do not start the ClickHouse server manually, instead use `brew services`:
 
@@ -74,17 +75,17 @@ If you absolutely need to run ClickHouse server manually, the command that corre
 $(brew --prefix clickhouse)/bin/clickhouse server --config-file $(brew --prefix)/etc/clickhouse-server/config.xml --pid-file $(brew --prefix)/var/run/clickhouse-server/clickhouse-server.pid
 ```
 
-### Versioned formulae
+## Versioned formulae
 
-All except the latest versioned ClickHouse formulae are configured as [keg-only](https://docs.brew.sh/FAQ#what-does-keg-only-mean), so to run them specifically, you have to provide the full path to the executables, e.g.:
+All except the latest versioned ClickHouse formulae are configured as [keg-only](https://docs.brew.sh/FAQ#what-does-keg-only-mean), so in order to refer to an executable from such formula you have to provide the full path to it, e.g.:
 
 ```sh
-$(brew --prefix clickhouse@21.11)/bin/clickhouse client ...
+$(brew --prefix clickhouse@21.11)/bin/clickhouse client
 ```
 
 ## Other formulae
 
-This tap also contains its own versions of `clickhouse-odbc` and `clikchouse-cpp` formulae, and in order to install these versions (which we recommend over the default ones), you have to provide the full names, since the default Homebrew registry contains those too:
+This tap also contains its own versions of `clickhouse-odbc` and `clikchouse-cpp` formulae, and in order to install these versions (which we recommend over the default ones), you have to provide the full names to avoid ambiguity, since the default Homebrew registry contains those too:
 
 ```sh
 brew install altinity/clickhouse/clickhouse-odbc
