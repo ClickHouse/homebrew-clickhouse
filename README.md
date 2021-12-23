@@ -3,12 +3,15 @@
 ## Available formulae
 
 ```text
-clickhouse
+clickhouse        (alias for clickhouse@21.12, always points to the latest versioned formula)
+clickhouse-client (alias for clickhouse)
+clickhouse-server (alias for clickhouse)
+clickhouse@stable (alias for clickhouse)
 
+clickhouse@21.12
 clickhouse@21.11 (keg-only)
-clickhouse@21.12 (keg-only)
 
-clickhouse-cpp (special variant)
+clickhouse-cpp  (special variant)
 clickhouse-odbc (special variant)
 ```
 
@@ -71,20 +74,10 @@ $(brew --prefix clickhouse)/bin/clickhouse server --config-file $(brew --prefix)
 
 ### Versioned formulae
 
-The versioned formulae are configured as [keg-only](https://docs.brew.sh/FAQ#what-does-keg-only-mean), so to run them specifically, you have to provide the full path to the executables, e.g.:
+All except the latest versioned ClickHouse formulae are configured as [keg-only](https://docs.brew.sh/FAQ#what-does-keg-only-mean), so to run them specifically, you have to provide the full path to the executables, e.g.:
 
 ```sh
 $(brew --prefix clickhouse@21.11)/bin/clickhouse client ...
-```
-
-### Aliases
-
-The following aliases are defined and can be used:
-
-```sh
-brew install clickhouse-client # same as: 'brew install clickhouse'
-brew install clickhouse-server # same as: 'brew install clickhouse'
-brew install clickhouse@stable # same as: 'brew install clickhouse@21.12' (or whatever the latest stable versioned formula is)
 ```
 
 ## Other formulae
@@ -123,7 +116,7 @@ You can also build the latest version (`HEAD`) of the sources for a formula:
 brew install --HEAD --verbose clickhouse
 ```
 
-The above command will check out the `master` branch of the official ClickHouse repo and build it. For versioned formulae, the tip of the branch that correspond to that specific version will be checked out (e.g., branch `21.11` for `clickhouse@21.11` and so on).
+The above command will check out the tip of the branch that corresponds to that specific version (e.g., branch [21.11](https://github.com/ClickHouse/ClickHouse/tree/21.11) for `clickhouse@21.11` and so on) and build it from sources.
 
 ## Homebrew on Linux (Linuxbrew)
 
