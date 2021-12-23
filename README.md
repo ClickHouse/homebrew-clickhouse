@@ -11,8 +11,10 @@ clickhouse@stable (same as clickhouse)
 clickhouse@21.12
 clickhouse@21.11 (keg-only)
 
-clickhouse-cpp  (special variant)
+clickhouse@21.8-altinity-stable (Altinity stable variant, keg-only)
+
 clickhouse-odbc (special variant)
+clickhouse-cpp  (special variant)
 ```
 
 ## Quick start: one-liner
@@ -124,6 +126,7 @@ Building the formulae from this tap is not tested in Linux, and bottles are not 
 
 ## Useful links
 
+- [Altinity](https://altinity.com/)
 - [ClickHouse](https://clickhouse.com/)
 - [ClickHouse C++ client library](https://github.com/ClickHouse/clickhouse-cpp)
 - [ClickHouse ODBC driver](https://github.com/ClickHouse/clickhouse-odbc)
