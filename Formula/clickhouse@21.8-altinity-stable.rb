@@ -32,7 +32,7 @@ class ClickhouseAT218AltinityStable < Formula
     depends_on "llvm"
   end
 
-  patch DATA:
+  patch :DATA
 
   def install
     cmake_args = std_cmake_args.dup
