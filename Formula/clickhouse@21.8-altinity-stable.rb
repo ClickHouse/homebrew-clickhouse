@@ -13,6 +13,12 @@ class ClickhouseAT218AltinityStable < Formula
     regex(/^v?(21\.8(?:\.\d+)+)-altinity(?:stable|lts)$/i)
   end
 
+  bottle do
+    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse@21.8-altinity-stable-21.8.13.1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "942c9115b9f3492a2394a4cf578cc6f0bb391e73900ef48cba582d74924971bc"
+    sha256                               monterey:       "5272c8933e298f97160173de61faa7b981874d07579bed945464683ac56c4b3b"
+  end
+
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
