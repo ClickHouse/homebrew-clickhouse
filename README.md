@@ -1,4 +1,4 @@
-# ClickHouse Homebrew tap (by Altinity)
+# Homebrew Tap for ClickHouse (by Altinity)
 
 ## Available formulae
 
