@@ -1,5 +1,6 @@
 [
     "clickhouse@21.8-altinity-stable",
     "clickhouse@21.11",
-    "clickhouse@21.12"
+    "clickhouse@21.12",
+    "clickhouse@22.1"
 ]
