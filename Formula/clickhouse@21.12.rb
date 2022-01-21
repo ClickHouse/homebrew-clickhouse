@@ -2,8 +2,8 @@ class ClickhouseAT2112 < Formula
   desc "Free analytics DBMS for big data with SQL interface"
   homepage "https://clickhouse.com"
   url "https://github.com/ClickHouse/ClickHouse.git",
-    tag:      "v21.12.2.17-stable",
-    revision: "e7ecfeca2067b34bf1dd9f5db40a20ea146de3d3"
+    tag:      "v21.12.3.32-stable",
+    revision: "80436a59f8d194f7a4ac1dbc237bcb5b55c3a9c2"
   license "Apache-2.0"
   head "https://github.com/ClickHouse/ClickHouse.git",
     branch:   "21.12"
