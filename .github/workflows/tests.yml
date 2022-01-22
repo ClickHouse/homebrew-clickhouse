@@ -20,10 +20,6 @@ jobs:
             os-arch: x64
 
     steps:
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-
       - name: Prepare workspace
         run: rm -rf "${{ github.workspace }}/*"
 
@@ -58,29 +54,8 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
-
-
-      - name: Upload bottles as artifact
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@main
-        with:
-          name: bottles
-          path: '*.bottle.*'
-
-
-
-
-
-
-
       - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
-
-      - name: Set up Node
-        if: github.event_name == 'pull_request'
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
 
       - name: Upload bottles as artifact
         if: github.event_name == 'pull_request'
