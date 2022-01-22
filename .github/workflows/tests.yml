@@ -58,6 +58,7 @@ jobs:
         if: github.event_name == 'pull_request'
 
       - name: Set up Node
+        if: github.event_name == 'pull_request'
         uses: actions/setup-node@v2
         with:
           node-version: '16'
