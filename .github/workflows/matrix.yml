@@ -10,7 +10,7 @@ jobs:
     name: Start "brew test-bot" workflow on a self-hosted AWS EC2 runner (macOS, Monterey, arm64)
     if: ${{ false }}
     concurrency: macos-arm64-ec2
-    uses: .github/workflows/test.ymlaws-self-hosted-runners
+    uses: .github/workflows/test.yml@aws-self-hosted-runners
     with:
       os-type: macos
       os-gen: monterey
@@ -18,7 +18,7 @@ jobs:
       ec2-instance-type: mac1.metal
       ec2-image-id: ami-056dc9ac02058c12d
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -30,7 +30,7 @@ jobs:
     name: Start "brew test-bot" workflow on a self-hosted AWS EC2 runner (macOS, Big Sur, arm64)
     if: ${{ false }}
     concurrency: macos-arm64-ec2
-    uses: .github/workflows/test.ymlaws-self-hosted-runners
+    uses: .github/workflows/test.yml@aws-self-hosted-runners
     with:
       os-type: macos
       os-gen: big-sur
@@ -38,7 +38,7 @@ jobs:
       ec2-instance-type: mac1.metal
       ec2-image-id: ami-0a35a79762786ea7f
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -49,7 +49,7 @@ jobs:
   test-bot-macos-monterey-x86_64-ec2:
     name: Start "brew test-bot" workflow on a self-hosted AWS EC2 runner (macOS, Monterey, x86_64)
     concurrency: macos-x86_64-ec2
-    uses: .github/workflows/test.ymlaws-self-hosted-runners
+    uses: .github/workflows/test.yml@aws-self-hosted-runners
     with:
       os-type: macos
       os-gen: monterey
@@ -57,7 +57,7 @@ jobs:
       ec2-instance-type: mac1.metal
       ec2-image-id: ami-056dc9ac02058c12d
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -69,7 +69,7 @@ jobs:
     name: Start "brew test-bot" workflow on a self-hosted AWS EC2 runner (macOS, Big Sur, x86_64)
     if: ${{ false }}
     concurrency: macos-x86_64-ec2
-    uses: .github/workflows/test.ymlaws-self-hosted-runners
+    uses: .github/workflows/test.yml@aws-self-hosted-runners
     with:
       os-type: macos
       os-gen: big-sur
@@ -77,7 +77,7 @@ jobs:
       ec2-instance-type: mac1.metal
       ec2-image-id: ami-0a35a79762786ea7f
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -89,7 +89,7 @@ jobs:
     name: Start "brew test-bot" workflow on a self-hosted AWS EC2 runner (macOS, Catalina, x86_64)
     if: ${{ false }}
     concurrency: macos-x86_64-ec2
-    uses: .github/workflows/test.ymlaws-self-hosted-runners
+    uses: .github/workflows/test.yml@aws-self-hosted-runners
     with:
       os-type: macos
       os-gen: catalina
@@ -97,7 +97,7 @@ jobs:
       ec2-instance-type: mac1.metal
       ec2-image-id: ami-0458f0fc32e5edfda
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -120,4 +120,4 @@ jobs:
       pull-request-number: ${{ github.event.pull_request.number }}
       origin-branch-to-delete: ${{ github.event.pull_request.head.repo.fork && '' || github.event.pull_request.head.ref }}
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
