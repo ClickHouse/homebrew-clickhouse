@@ -10,7 +10,7 @@ jobs:
     name: Start "brew test-bot" workflow on a self-hosted AWS EC2 runner (macOS, Monterey, arm64)
     if: ${{ false }}
     concurrency: macos-arm64-ec2
-    uses: Altinity/homebrew-clickhouse/.github/workflows/test.yml@aws-self-hosted-runners
+    uses: Altinity/homebrew-clickhouse/.github/workflows/test.yml@main
     with:
       os-type: macos
       os-gen: monterey
@@ -30,7 +30,7 @@ jobs:
     name: Start "brew test-bot" workflow on a self-hosted AWS EC2 runner (macOS, Big Sur, arm64)
     if: ${{ false }}
     concurrency: macos-arm64-ec2
-    uses: Altinity/homebrew-clickhouse/.github/workflows/test.yml@aws-self-hosted-runners
+    uses: Altinity/homebrew-clickhouse/.github/workflows/test.yml@main
     with:
       os-type: macos
       os-gen: big-sur
@@ -49,7 +49,7 @@ jobs:
   test-bot-macos-monterey-x86_64-ec2:
     name: Start "brew test-bot" workflow on a self-hosted AWS EC2 runner (macOS, Monterey, x86_64)
     concurrency: macos-x86_64-ec2
-    uses: Altinity/homebrew-clickhouse/.github/workflows/test.yml@aws-self-hosted-runners
+    uses: Altinity/homebrew-clickhouse/.github/workflows/test.yml@main
     with:
       os-type: macos
       os-gen: monterey
@@ -69,7 +69,7 @@ jobs:
     name: Start "brew test-bot" workflow on a self-hosted AWS EC2 runner (macOS, Big Sur, x86_64)
     if: ${{ false }}
     concurrency: macos-x86_64-ec2
-    uses: Altinity/homebrew-clickhouse/.github/workflows/test.yml@aws-self-hosted-runners
+    uses: Altinity/homebrew-clickhouse/.github/workflows/test.yml@main
     with:
       os-type: macos
       os-gen: big-sur
@@ -89,7 +89,7 @@ jobs:
     name: Start "brew test-bot" workflow on a self-hosted AWS EC2 runner (macOS, Catalina, x86_64)
     if: ${{ false }}
     concurrency: macos-x86_64-ec2
-    uses: Altinity/homebrew-clickhouse/.github/workflows/test.yml@aws-self-hosted-runners
+    uses: Altinity/homebrew-clickhouse/.github/workflows/test.yml@main
     with:
       os-type: macos
       os-gen: catalina
