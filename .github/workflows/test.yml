@@ -12,10 +12,7 @@ on:
       os-arch:
         required: true
         type: string
-      ec2-instance-type:
-        required: true
-        type: string
-      ec2-image-id:
+      ec2-launch-template:
         required: true
         type: string
     secrets:
@@ -26,10 +23,6 @@ on:
       AWS_SECRET_ACCESS_KEY:
         required: true
       AWS_REGION:
-        required: true
-      AWS_SECURITY_GROUP_ID:
-        required: true
-      AWS_SUBNET_ID:
         required: true
       RUNNER_TOKEN:
         required: true
@@ -52,14 +45,11 @@ jobs:
 
       - name: Start EC2 runner
         id: start-ec2-runner
-        uses: machulav/ec2-github-runner@v2
+        uses: fac/ec2-github-runner@670c9074237211ea48c905ebf14b884e0c9e74b7
         with:
           mode: start
           github-token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
-          ec2-instance-type: ${{ inputs.ec2-instance-type }}
-          ec2-image-id: ${{ inputs.ec2-image-id }}
-          security-group-id: ${{ secrets.AWS_SECURITY_GROUP_ID }}
-          subnet-id: ${{ secrets.AWS_SUBNET_ID }}
+          ec2-launch-template: ${{ inputs.ec2-launch-template }}
           aws-resource-tags: >
             [
               {"Key": "runner-token", "Value": "${{ secrets.RUNNER_TOKEN }}"},
@@ -111,7 +101,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Stop EC2 runner
-        uses: machulav/ec2-github-runner@v2
+        uses: fac/ec2-github-runner@670c9074237211ea48c905ebf14b884e0c9e74b7
         with:
           mode: stop
           github-token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
