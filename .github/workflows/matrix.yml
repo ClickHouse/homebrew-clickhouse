@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+permissions: write-all
+
 jobs:
   test-bot-macos-monterey-arm64-ec2:
     name: Start "brew test-bot" workflow on a self-hosted AWS EC2 runner (macOS, Monterey, arm64)
