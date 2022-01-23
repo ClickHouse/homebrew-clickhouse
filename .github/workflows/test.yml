@@ -86,7 +86,7 @@ jobs:
 
   stop-runner:
     name: Stop self-hosted AWS EC2 runner
-    if: ${{ always() }}
+    if: ${{ always() && (needs.start-runner.outputs.label != '' || needs.start-runner.outputs.ec2-instance-id != '') }}
     runs-on: ubuntu-latest
     needs:
       - start-runner
