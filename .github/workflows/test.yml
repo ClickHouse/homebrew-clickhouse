@@ -55,7 +55,7 @@ jobs:
         uses: machulav/ec2-github-runner@v2
         with:
           mode: start
-          github-token: ${{ inputs.GITHUB_ACCESS_TOKEN }}
+          github-token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
           ec2-instance-type: ${{ inputs.ec2-instance-type }}
           ec2-image-id: ${{ inputs.ec2-image-id }}
           security-group-id: ${{ secrets.AWS_SECURITY_GROUP_ID }}
