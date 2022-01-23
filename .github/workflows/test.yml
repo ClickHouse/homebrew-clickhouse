@@ -1,0 +1,119 @@
+name: brew test-bot
+
+on:
+  workflow_call:
+    inputs:
+      os-type:
+        required: true
+        type: string
+      os-gen:
+        required: true
+        type: string
+      os-arch:
+        required: true
+        type: string
+      ec2-instance-type:
+        required: true
+        type: string
+      ec2-image-id:
+        required: true
+        type: string
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+      AWS_ACCESS_KEY_ID:
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        required: true
+      AWS_REGION:
+        required: true
+      AWS_SECURITY_GROUP_ID:
+        required: true
+      AWS_SUBNET_ID:
+        required: true
+      RUNNER_TOKEN:
+        required: true
+
+jobs:
+  start-runner:
+    name: Start self-hosted AWS EC2 runner
+    runs-on: ubuntu-latest
+    outputs:
+      label: ${{ steps.start-ec2-runner.outputs.label }}
+      ec2-instance-id: ${{ steps.start-ec2-runner.outputs.ec2-instance-id }}
+
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Start EC2 runner
+        id: start-ec2-runner
+        uses: machulav/ec2-github-runner@v2
+        with:
+          mode: start
+          github-token: ${{ inputs.GITHUB_TOKEN }}
+          ec2-instance-type: ${{ inputs.ec2-instance-type }}
+          ec2-image-id: ${{ inputs.ec2-image-id }}
+          security-group-id: ${{ secrets.AWS_SECURITY_GROUP_ID }}
+          subnet-id: ${{ secrets.AWS_SUBNET_ID }}
+          aws-resource-tags: >
+            [
+              {"Key": "runner-token", "Value": "${{ secrets.RUNNER_TOKEN }}"},
+              {"Key": "runner-name", "Value": "homebrew-${{ inputs.os-type }}-${{ inputs.os-gen }}-${{ inputs.os-arch }}-ec2"},
+              {"Key": "runner-labels", "Value": "self-hosted,ec2,homebrew,${{ inputs.os-type }},${{ inputs.os-gen }},${{ inputs.os-arch }}"}
+            ]
+
+  test-bot:
+    name: Run Homebrew's test-bot
+    runs-on: [self-hosted, homebrew, '${{ inputs.os-type }}', '${{ inputs.os-gen }}', '${{ inputs.os-arch }}']
+    needs: start-runner
+    timeout-minutes: 600
+
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Install Homebrew Bundler RubyGems
+        run: brew install-bundler-gems
+
+      - run: brew test-bot --only-cleanup-before
+
+      - run: brew test-bot --only-setup
+
+      - run: brew test-bot --only-tap-syntax
+
+      - run: brew test-bot --only-formulae
+
+      - name: Upload bottles as artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles
+          path: '*.bottle.*'
+
+  stop-runner:
+    name: Stop self-hosted AWS EC2 runner
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    needs:
+      - start-runner
+      - test-bot
+
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Stop EC2 runner
+        uses: machulav/ec2-github-runner@v2
+        with:
+          mode: stop
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          label: ${{ needs.start-runner.outputs.label }}
+          ec2-instance-id: ${{ needs.start-runner.outputs.ec2-instance-id }}
