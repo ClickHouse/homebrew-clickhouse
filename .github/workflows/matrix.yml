@@ -109,7 +109,7 @@ jobs:
     name: Publish bottles
     if: ${{ github.event.pull_request.draft == false }}
     concurrency: repo-modification
-    uses: Altinity/homebrew-clickhouse/.github/workflows/publish.ymlaws-self-hosted-runners
+    uses: Altinity/homebrew-clickhouse/.github/workflows/publish.yml@ec2runners
     needs:
       - test-bot-macos-monterey-arm64-ec2
       - test-bot-macos-big-sur-arm64-ec2
