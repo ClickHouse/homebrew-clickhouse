@@ -14,10 +14,9 @@ class ClickhouseCpp < Formula
   end
 
   bottle do
-    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse-cpp-2.0.0"
-    rebuild 2
-    sha256 cellar: :any, arm64_monterey: "56935932e12510d7fb578830fbdc1ba372282b7fb999c5bc9bc3a53880f3bdd8"
-    sha256 cellar: :any, monterey:       "7b90aae24118d73c901ab4ffac983e2a6298d794e87df561b69f3af90d8a5b5e"
+    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse-cpp-2.1.0"
+    sha256 cellar: :any, arm64_monterey: "5291a4a8249a7a96bfb2a7da5e511bcb5d708b568e3b62df114d5da71d95bd92"
+    sha256 cellar: :any, monterey:       "a516a752c2d1e49e91cb58cadf6e44b4ae7568c75718575a709b88878ea5fef8"
   end
 
   depends_on "cmake" => [:build, :test]
