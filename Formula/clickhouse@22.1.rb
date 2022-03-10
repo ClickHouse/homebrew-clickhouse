@@ -14,9 +14,9 @@ class ClickhouseAT221 < Formula
   end
 
   bottle do
-    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse@22.1-22.1.2.2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1bbc3510fb370379854a079dd6cfe74f2c436d56878b04b8182265dcbdc72c30"
-    sha256                               monterey:       "c7b40701ec51c68ac671a30b1f56a40de48f04e0d68f2608df910c81a292adc7"
+    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse@22.1-22.1.4.30"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "243c2664d8d97c417299efbb839af7c027ad49af04c1742b6e644060d7b6d887"
+    sha256                               monterey:       "d359342d3e7e3ea2e5e6a08ed6f449ef05b6131d2335357a8828d549227dfbcf"
   end
 
   depends_on "cmake" => :build
