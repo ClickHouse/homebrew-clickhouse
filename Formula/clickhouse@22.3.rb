@@ -20,7 +20,7 @@ class ClickhouseAT223 < Formula
   depends_on "libtool" => :build
   depends_on "ninja" => :build
   depends_on "perl" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   on_macos do
     depends_on "llvm" => :build
