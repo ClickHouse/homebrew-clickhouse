@@ -3,18 +3,21 @@
 ## Available formulae
 
 ```text
-clickhouse                       - alias, always points to the latest versioned formula (clickhouse@22.2)
-clickhouse-client                - alias, same as clickhouse
-clickhouse-server                - alias, same as clickhouse
-clickhouse@stable                - alias, same as clickhouse
-clickhouse@altinity-stable       - alias, always points to the latest Altinity stable versioned formula (clickhouse@21.8-altinity-stable)
+clickhouse                       - alias, same as clickhouse@stable
+clickhouse-client                - alias, same as clickhouse@stable
+clickhouse-server                - alias, same as clickhouse@stable
 
-clickhouse@22.2                  - the latest version
+clickhouse@stable                - alias, always points to the latest stable versioned formula (clickhouse@22.3)
+clickhouse@lts                   - alias, always points to the latest LTS versioned formula (clickhouse@22.3)
+clickhouse@altinity-stable       - alias, always points to the latest Altinity-stable versioned formula (clickhouse@21.8-altinity-stable)
+
+clickhouse@22.3                  - the latest version
+clickhouse@22.2                  - keg-only
 clickhouse@22.1                  - keg-only
 clickhouse@21.12                 - keg-only
 clickhouse@21.11                 - keg-only
 
-clickhouse@21.8-altinity-stable  - keg-only, the latest Altinity stable version
+clickhouse@21.8-altinity-stable  - keg-only, the latest Altinity-stable version
 
 clickhouse-odbc                  - special variant
 clickhouse-cpp                   - special variant
