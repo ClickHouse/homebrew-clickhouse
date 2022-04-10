@@ -64,10 +64,10 @@ brew services start clickhouse@21.11
 ClickHouse is deployed under the standard Homebrew prefix. The relevant directories are:
 
 ```text
-Config:   $(brew --prefix)/etc/clickhouse-server/
-Data:     $(brew --prefix)/var/lib/clickhouse/
-Logs:     $(brew --prefix)/var/log/clickhouse-server/
-PID file: $(brew --prefix)/var/run/clickhouse-server/
+Config:    $(brew --prefix)/etc/clickhouse-server/
+Data:      $(brew --prefix)/var/lib/clickhouse/
+Logs:      $(brew --prefix)/var/log/clickhouse-server/
+PID file:  $(brew --prefix)/var/run/clickhouse-server/
 ```
 
 These files and directories will be preserved between installations.
@@ -129,6 +129,10 @@ The above command will check out the tip of the branch that corresponds to that 
 ## Homebrew on Linux (Linuxbrew)
 
 Building the formulae from this tap is not tested in Linux, and bottles are not available, but there are no known conceptual problems, and they should generally work. Feel free to experiment and report any [issues](https://github.com/Altinity/homebrew-clickhouse/issues).
+
+## Adding or updating formulae in this tap (for maintainers only)
+
+Refer to [Maintenance](MAINTENANCE.md) for instructions.
 
 ## Useful links
 
