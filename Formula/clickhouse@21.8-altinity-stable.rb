@@ -2,8 +2,8 @@ class ClickhouseAT218AltinityStable < Formula
   desc "Free analytics DBMS for big data with SQL interface"
   homepage "https://clickhouse.com"
   url "https://github.com/Altinity/ClickHouse.git",
-    tag:      "v21.8.13.1-altinitystable",
-    revision: "e7c6f6745557db3246236558306e638d3920a841"
+    tag:      "v21.8.15.15-altinitystable",
+    revision: "8930598ded9a7b0213691f3412c1195bad2f897d"
   license "Apache-2.0"
   head "https://github.com/Altinity/ClickHouse.git",
     branch:   "releases/21.8.13"
