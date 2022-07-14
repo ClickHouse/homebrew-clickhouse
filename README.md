@@ -7,20 +7,23 @@ clickhouse                       - alias, same as clickhouse@stable
 clickhouse-client                - alias, same as clickhouse@stable
 clickhouse-server                - alias, same as clickhouse@stable
 
-clickhouse@stable                - alias, always points to the latest stable versioned formula (clickhouse@22.3)
+clickhouse@stable                - alias, always points to the latest stable versioned formula (clickhouse@22.6)
 clickhouse@lts                   - alias, always points to the latest LTS versioned formula (clickhouse@22.3)
 clickhouse@altinity-stable       - alias, always points to the latest Altinity-stable versioned formula (clickhouse@21.8-altinity-stable)
 
-clickhouse@22.3                  - the latest version
-clickhouse@22.2                  - keg-only
-clickhouse@22.1                  - keg-only
-clickhouse@21.12                 - keg-only
-clickhouse@21.11                 - keg-only
+clickhouse@22.6                  - the latest release, version: 22.6.3.35-stable
+clickhouse@22.5                  - keg-only, version: 22.5.2.53-stable
+clickhouse@22.4                  - keg-only, version: 22.4.6.53-stable
+clickhouse@22.3                  - keg-only, version: 22.3.8.39-lts
+clickhouse@22.2                  - keg-only, version: 22.2.3.5-stable
+clickhouse@22.1                  - keg-only, version: 22.1.4.30-stable
+clickhouse@21.12                 - keg-only, version: 21.12.4.1-stable
+clickhouse@21.11                 - keg-only, version: 21.11.11.1-stable
 
-clickhouse@21.8-altinity-stable  - keg-only, the latest Altinity-stable version
+clickhouse@21.8-altinity-stable  - keg-only, the latest Altinity-stable release, version: 21.8.15.15-altinitystable
 
-clickhouse-odbc                  - special variant
-clickhouse-cpp                   - special variant
+clickhouse-odbc                  - recommended variant, version: 1.1.10.20210822
+clickhouse-cpp                   - recommended variant, version: 2.1.0
 ```
 
 ## Quick start: one-liner
@@ -52,7 +55,7 @@ Note, that the installation doesn't require `sudo` and will deploy ClickHouse un
 
 ## Running ClickHouse server
 
-Do not use `sudo` ever. Do not start the ClickHouse server manually, instead use `brew services`:
+Do not use `sudo`, ever. Do not start the ClickHouse server manually, instead use `brew services`:
 
 ```sh
 brew services start clickhouse
@@ -112,7 +115,7 @@ Eventually, this list will be extended to also contain some of the previous vers
 
 Formulae will be built from sources automatically if the corresponding bottles are not available for your platform.
 
-If you want to see the progress, add `--verbose`:
+It could take several hours to build ClickHouse from sources, so you will probably want to monitor the progress. To enable verbose output for that scenario, add `--verbose` to `brew install ...`:
 
 ```sh
 brew install --verbose clickhouse

@@ -79,7 +79,7 @@ Use the latest `Formula/clickhouse@YY.YY.rb` formulae as a template:
     - adjust the configure/build flags and steps, if needed
   - make a PR from this branch into `main`, use `clickhouse@XX.XX XX.XX.XX.XX (new formula)` caption and an empty description (adjust the versions)
   - wait until all checks are green in the GitHub PR page, during which bottles will be created and uploaded as artifacts in GitHub
-  - once all checks are green, add `pr-pull` tag on the PR, this will trigger another action that will modify the formula, register the bottles in it, and will close (but not merge!) the PR; even though the PR will be shown as closed, the branch will be merged into `main` and the new versioned formula with bottles will be available to the users (they will need to do `brew update` to see the changes)
+  - once all checks are green, add `pr-pull` tag on the PR, this will trigger another action that will modify the formula, register the bottles in it, and will close (but **not** merge!) the PR; even though the PR will be shown as closed, the branch will be merged into `main` and the new versioned formula with bottles will be available to the users (they will need to do `brew update` to see the changes)
 - step 3: adjust the `README.md` and aliases
   - as a separate commit directly into `main` of the upstream:
     - add a `keg_only :versioned_formula` line to the previous latest versioned formula (the one you used as a template) right after the `bottle do ... end` section (compare with the older formulae for examples)
@@ -92,7 +92,9 @@ Use `brew livecheck ...` and `brew bump-formula-pr ...` to automatically detect 
 
 - make sure you have an up-to-date Homebrew installation locally, and the tap is added to it
 - run `brew livecheck altinity/clickhouse/clickhouse@21.11` locally to see if a new version of the software is available (adjust version/formula name as needed), write down the new version, if any, as reported by `brew livecheck ...` - you will use it in the next steps
-- make sure you have a valid `GITHUB_TOKEN` in your `env` so that you will be able to push the changes made to the tap repo clone stored in your local brew's internal directories
+- make sure you have a valid `GITHUB_TOKEN` and `HOMEBREW_GITHUB_API_TOKEN` in your `env` so that you will be able to push the changes made to the tap repo clone stored in your local brew's internal directories
 - run `brew bump-formula-pr altinity/clickhouse/clickhouse@21.11 --version=21.11.11.1 --no-fork`, it will create a PR with the new version (here `21.11.11.1`, as an example of a version that `brew livecheck ...` detected as one to upgrade to)
 - wait until all checks are green in the GitHub PR page, during which bottles will be created and uploaded as artifacts in GitHub
-- once all checks are green, add `pr-pull` tag on the PR, this will trigger another action that will modify the formula, register the bottles in it, and will close (but not merge!) the PR; even though the PR will be shown as closed, the branch will be merged into `main` and the new version of the formula with bottles will be available to the users (they will need to do `brew update` to see the changes)
+- once all checks are green, add `pr-pull` tag on the PR, this will trigger another action that will modify the formula, register the bottles in it, and will close (but **not** merge!) the PR; even though the PR will be shown as closed, the branch will be merged into `main` and the new version of the formula with bottles will be available to the users (they will need to do `brew update` to see the changes)
+- as a separate commit directly into `main` of the upstream:
+  - adjust the relevant version number in `README.md` to reflect the changes
