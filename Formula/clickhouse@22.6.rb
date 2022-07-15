@@ -76,6 +76,9 @@ class ClickhouseAT226 < Formula
   end
 
   def post_install
+    # WORKAROUND: .../log/ dir is not bottled, looks like.
+    mkdir_p var/"log/clickhouse-server"
+
     # Fix the permissions when deploying.
     Dir.glob([
       etc/"clickhouse-server/**/*",
