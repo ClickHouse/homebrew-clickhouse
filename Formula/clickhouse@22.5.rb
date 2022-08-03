@@ -2,8 +2,8 @@ class ClickhouseAT225 < Formula
   desc "Free analytics DBMS for big data with SQL interface"
   homepage "https://clickhouse.com"
   url "https://github.com/ClickHouse/ClickHouse.git",
-    tag:      "v22.5.2.53-stable",
-    revision: "5fd600fda9ea6623e16d65c4c67ba4e808f5d9af"
+    tag:      "v22.5.3.21-stable",
+    revision: "e03724efec501300c714c3ba87fca0fc3a6ab468"
   license "Apache-2.0"
   head "https://github.com/ClickHouse/ClickHouse.git",
     branch:   "22.5"
