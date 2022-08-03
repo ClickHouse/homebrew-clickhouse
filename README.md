@@ -9,7 +9,7 @@ clickhouse-server                - alias, same as clickhouse@stable
 
 clickhouse@stable                - alias, always points to the latest stable versioned formula (clickhouse@22.6)
 clickhouse@lts                   - alias, always points to the latest LTS versioned formula (clickhouse@22.3)
-clickhouse@altinity-stable       - alias, always points to the latest Altinity-stable versioned formula (clickhouse@21.8-altinity-stable)
+clickhouse@altinity-stable       - alias, always points to the latest Altinity-stable versioned formula (clickhouse@22.3-altinity-stable)
 
 clickhouse@22.6                  - the latest release, version: 22.6.3.35-stable
 clickhouse@22.5                  - keg-only, version: 22.5.2.53-stable
@@ -20,10 +20,11 @@ clickhouse@22.1                  - keg-only, version: 22.1.4.30-stable
 clickhouse@21.12                 - keg-only, version: 21.12.4.1-stable
 clickhouse@21.11                 - keg-only, version: 21.11.11.1-stable
 
-clickhouse@21.8-altinity-stable  - keg-only, the latest Altinity-stable release, version: 21.8.15.15-altinitystable
+clickhouse@22.3-altinity-stable  - keg-only, the latest Altinity-stable release, version: 22.3.8.40-altinitystable
+clickhouse@21.8-altinity-stable  - keg-only, Altinity-stable release, version: 21.8.15.15-altinitystable
 
 clickhouse-odbc                  - recommended variant, version: 1.1.10.20210822
-clickhouse-cpp                   - recommended variant, version: 2.1.0
+clickhouse-cpp                   - recommended variant, version: 2.2.1
 ```
 
 ## Quick start: one-liner
