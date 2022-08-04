@@ -49,6 +49,7 @@ class ClickhouseAT227 < Formula
     cmake_args << "-DCMAKE_AR=#{Formula["llvm"].bin}/llvm-ar"
     cmake_args << "-DCMAKE_RANLIB=#{Formula["llvm"].bin}/llvm-ranlib"
     cmake_args << "-DOBJCOPY_PATH=#{Formula["llvm"].bin}/llvm-objcopy"
+    cmake_args << "-DSTRIP_PATH=#{Formula["llvm"].bin}/llvm-strip"
 
     # Disable more stuff that is irrelevant for production builds.
     cmake_args << "-DENABLE_CCACHE=OFF"
