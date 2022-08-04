@@ -16,6 +16,7 @@ class ClickhouseAT227 < Formula
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
+  depends_on "findutils" => :build
   depends_on "gawk" => :build
   depends_on "gettext" => :build
   depends_on "git-lfs" => :build
