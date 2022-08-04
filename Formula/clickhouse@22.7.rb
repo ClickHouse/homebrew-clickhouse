@@ -20,6 +20,7 @@ class ClickhouseAT227 < Formula
   depends_on "gawk" => :build
   depends_on "gettext" => :build
   depends_on "git-lfs" => :build
+  depends_on "grep" => :build
   depends_on "libtool" => :build
   depends_on "ninja" => :build
   depends_on "perl" => :build
