@@ -11,10 +11,10 @@ clickhouse@stable                - alias, always points to the latest stable ver
 clickhouse@lts                   - alias, always points to the latest LTS versioned formula (clickhouse@22.3)
 clickhouse@altinity-stable       - alias, always points to the latest Altinity-stable versioned formula (clickhouse@22.3-altinity-stable)
 
-clickhouse@22.6                  - the latest release, version: 22.6.3.35-stable
-clickhouse@22.5                  - keg-only, version: 22.5.2.53-stable
+clickhouse@22.6                  - the latest release, version: 22.6.4.35-stable
+clickhouse@22.5                  - keg-only, version: 22.5.3.21-stable
 clickhouse@22.4                  - keg-only, version: 22.4.6.53-stable
-clickhouse@22.3                  - keg-only, version: 22.3.8.39-lts
+clickhouse@22.3                  - keg-only, version: 22.3.9.19-lts
 clickhouse@22.2                  - keg-only, version: 22.2.3.5-stable
 clickhouse@22.1                  - keg-only, version: 22.1.4.30-stable
 clickhouse@21.12                 - keg-only, version: 21.12.4.1-stable
