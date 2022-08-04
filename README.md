@@ -7,11 +7,12 @@ clickhouse                       - alias, same as clickhouse@stable
 clickhouse-client                - alias, same as clickhouse@stable
 clickhouse-server                - alias, same as clickhouse@stable
 
-clickhouse@stable                - alias, always points to the latest stable versioned formula (clickhouse@22.6)
+clickhouse@stable                - alias, always points to the latest stable versioned formula (clickhouse@22.7)
 clickhouse@lts                   - alias, always points to the latest LTS versioned formula (clickhouse@22.3)
 clickhouse@altinity-stable       - alias, always points to the latest Altinity-stable versioned formula (clickhouse@22.3-altinity-stable)
 
-clickhouse@22.6                  - the latest release, version: 22.6.4.35-stable
+clickhouse@22.7                  - the latest release, version: 22.7.2.15-stable
+clickhouse@22.6                  - keg-only, version: 22.6.4.35-stable
 clickhouse@22.5                  - keg-only, version: 22.5.3.21-stable
 clickhouse@22.4                  - keg-only, version: 22.4.6.53-stable
 clickhouse@22.3                  - keg-only, version: 22.3.9.19-lts
