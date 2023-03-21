@@ -7,10 +7,11 @@ clickhouse                       - alias, same as clickhouse@stable
 clickhouse-client                - alias, same as clickhouse@stable
 clickhouse-server                - alias, same as clickhouse@stable
 
-clickhouse@stable                - alias, always points to the latest stable versioned formula (clickhouse@22.7)
+clickhouse@stable                - alias, always points to the latest stable versioned formula (clickhouse@23.2)
 clickhouse@lts                   - alias, always points to the latest LTS versioned formula (clickhouse@22.3)
 clickhouse@altinity-stable       - alias, always points to the latest Altinity-stable versioned formula (clickhouse@22.3-altinity-stable)
 
+clickhouse@23.2                  - 
 clickhouse@22.7                  - the latest release, version: 22.7.2.15-stable
 clickhouse@22.6                  - keg-only, version: 22.6.4.35-stable
 clickhouse@22.5                  - keg-only, version: 22.5.3.21-stable
@@ -31,7 +32,7 @@ clickhouse-cpp                   - recommended variant, version: 2.2.1
 ## Quick start: one-liner
 
 ```sh
-brew install altinity/clickhouse/clickhouse
+brew install vantage-sh/clickhouse/clickhouse
 ```
 
 ## Quick start: fine control
@@ -39,7 +40,7 @@ brew install altinity/clickhouse/clickhouse
 First, register the tap (needs to be done only once):
 
 ```sh
-brew tap altinity/clickhouse
+brew tap vantage-sh/clickhouse
 ```
 
 Then, install the formula you need:
