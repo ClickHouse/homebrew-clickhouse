@@ -13,12 +13,6 @@ class ClickhouseAT232 < Formula
     regex(/^v?(23\.2(?:\.\d+)+)-(?:stable|lts)$/i)
   end
 
-  #bottle do
-  #  root_url "https://github.com/vantage-sh/homebrew-clickhouse/releases/download/clickhouse@23.2-23.2.4.12"
-  #  sha256 cellar: :any_skip_relocation, arm64_monterey: "7204da0ba7af3936168084c942e725f1e3a99f31c241b508339850f430ad1821"
-  #  sha256                               monterey:       "95bdb49c1a06b0d892e6502ba9dfcf72bac103a359e62e5d4f297de7637b101f"
-  #end
-
   depends_on "cmake" => :build
   depends_on "findutils" => :build
   depends_on "gawk" => :build
