@@ -6,7 +6,7 @@ on:
   pull_request:
 jobs:
   test-bot:
-    runs-on: [self-hosted, homebrew, '${{ matrix.os-type }}', '${{ matrix.os-gen }}', '${{ matrix.os-arch }}']
+    runs-on: ['${{ matrix.os-type }}', '${{ matrix.os-gen }}', '${{ matrix.os-arch }}']
     timeout-minutes: 600
     strategy:
       matrix:
