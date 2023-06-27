@@ -23,7 +23,7 @@ class ClickhouseAT235 < Formula
   depends_on "llvm" => :build
   depends_on "ninja" => :build
   depends_on "perl" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.10" => :build
 
   def install
     cmake_args = std_cmake_args.dup
