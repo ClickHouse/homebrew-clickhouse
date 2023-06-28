@@ -20,10 +20,17 @@ class ClickhouseAT235 < Formula
   depends_on "git-lfs" => :build
   depends_on "grep" => :build
   depends_on "libtool" => :build
-  depends_on "llvm" => :build
   depends_on "ninja" => :build
   depends_on "perl" => :build
   depends_on "python@3.10" => :build
+
+  on_macos do
+    depends_on "llvm" => :build
+  end
+
+  on_linux do
+    depends_on "llvm"
+  end
 
   def install
     cmake_args = std_cmake_args.dup
