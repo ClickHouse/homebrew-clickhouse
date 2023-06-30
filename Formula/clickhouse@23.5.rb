@@ -14,7 +14,7 @@ class ClickhouseAT235 < Formula
   end
 
   bottle do
-    root_url "https://github.com/Altinity/homebrew-clickhouse/releases/download/clickhouse@22.7-22.7.2.15"
+    root_url "https://github.com/ClickHouse/homebrew-clickhouse/releases/download/clickhouse@22.7-22.7.2.15"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5c12020235e35f2061ba8b7acd711fe9b0d2ac7e94b45750899af316c8ca06c5"
   end
 
