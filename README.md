@@ -1,37 +1,25 @@
-# Homebrew Tap for ClickHouse (by Altinity)
+# Homebrew Tap for ClickHouse
 
 ## Available formulae
 
 ```text
-clickhouse                       - alias, same as clickhouse@stable
-clickhouse-client                - alias, same as clickhouse@stable
-clickhouse-server                - alias, same as clickhouse@stable
+clickhouse                       - alias, points to the latest release (clickhouse@23.5)
+clickhouse@lts                   - alias, points to the latest LTS release (clickhouse@22.3)
 
-clickhouse@stable                - alias, always points to the latest stable versioned formula (clickhouse@22.7)
-clickhouse@lts                   - alias, always points to the latest LTS versioned formula (clickhouse@22.3)
-clickhouse@altinity-stable       - alias, always points to the latest Altinity-stable versioned formula (clickhouse@22.3-altinity-stable)
-
-clickhouse@22.7                  - the latest release, version: 22.7.2.15-stable
+clickhouse@23.5                  - the latest release, version: 23.5.3.24-stable
+clickhouse@22.7                  - keg-only, version: 22.7.2.15-stable
 clickhouse@22.6                  - keg-only, version: 22.6.4.35-stable
 clickhouse@22.5                  - keg-only, version: 22.5.3.21-stable
 clickhouse@22.4                  - keg-only, version: 22.4.6.53-stable
 clickhouse@22.3                  - keg-only, version: 22.3.9.19-lts
 clickhouse@22.2                  - keg-only, version: 22.2.3.5-stable
 clickhouse@22.1                  - keg-only, version: 22.1.4.30-stable
-clickhouse@21.12                 - keg-only, version: 21.12.4.1-stable
-clickhouse@21.11                 - keg-only, version: 21.11.11.1-stable
-
-clickhouse@22.3-altinity-stable  - keg-only, the latest Altinity-stable release, version: 22.3.8.40-altinitystable
-clickhouse@21.8-altinity-stable  - keg-only, Altinity-stable release, version: 21.8.15.15-altinitystable
-
-clickhouse-odbc                  - recommended variant, version: 1.1.10.20210822
-clickhouse-cpp                   - recommended variant, version: 2.2.1
 ```
 
 ## Quick start: one-liner
 
 ```sh
-brew install altinity/clickhouse/clickhouse
+brew install clickhouse/clickhouse/clickhouse
 ```
 
 ## Quick start: fine control
@@ -39,21 +27,21 @@ brew install altinity/clickhouse/clickhouse
 First, register the tap (needs to be done only once):
 
 ```sh
-brew tap altinity/clickhouse
+brew tap clickhouse/clickhouse
 ```
 
-Then, install the formula you need:
+Then, install the formula:
 
 ```sh
 brew install clickhouse
 # ..or
-brew install clickhouse@21.11
+brew install clickhouse@23.5
 # ...and so on.
 ```
 
-Please, always read the `Caveats` sections, which are displayed after the installation, carefully.
+Please always read the `Caveats` sections displayed after installation carefully.
 
-Note, that the installation doesn't require `sudo` and will deploy ClickHouse under the standard Homebrew prefix.
+Note that the installation doesn't require `sudo` and will deploy ClickHouse under the standard Homebrew prefix.
 
 ## Running ClickHouse server
 
@@ -62,7 +50,7 @@ Do not use `sudo`, ever. Do not start the ClickHouse server manually, instead us
 ```sh
 brew services start clickhouse
 # ..or
-brew services start clickhouse@21.11
+brew services start clickhouse@23.5
 # ...and so on.
 ```
 
@@ -91,15 +79,6 @@ All except the latest versioned ClickHouse formulae are configured as [keg-only]
 
 ```sh
 $(brew --prefix clickhouse@21.11)/bin/clickhouse client
-```
-
-## Other formulae
-
-This tap also contains its own versions of `clickhouse-odbc` and `clikchouse-cpp` formulae, and in order to install these versions (which we recommend over the default ones), you have to provide the full names to avoid ambiguity, since the default Homebrew registry contains those too:
-
-```sh
-brew install altinity/clickhouse/clickhouse-odbc
-brew install altinity/clickhouse/clickhouse-cpp
 ```
 
 ## Pre-built binary packages (bottles)
@@ -133,7 +112,7 @@ The above command will check out the tip of the branch that corresponds to that 
 
 ## Homebrew on Linux (Linuxbrew)
 
-Building the formulae from this tap is not tested in Linux, and bottles are not available, but there are no known conceptual problems, and they should generally work. Feel free to experiment and report any [issues](https://github.com/Altinity/homebrew-clickhouse/issues).
+Building the formulae from this tap is not tested in Linux, and bottles are not available, but there are no known conceptual problems, and they should generally work. Feel free to experiment and report any [issues](https://github.com/clickhouse/homebrew-clickhouse/issues).
 
 ## Adding or updating formulae in this tap (for maintainers only)
 
@@ -141,9 +120,5 @@ Refer to [Maintenance](MAINTENANCE.md) for instructions.
 
 ## Useful links
 
-- [Altinity](https://altinity.com/)
 - [ClickHouse](https://clickhouse.com/)
-- [ClickHouse C++ client library](https://github.com/ClickHouse/clickhouse-cpp)
-- [ClickHouse ODBC driver](https://github.com/ClickHouse/clickhouse-odbc)
-- [ClickHouse Tableau connector](https://github.com/Altinity/clickhouse-tableau-connector-odbc)
 - [Homebrew](https://brew.sh)
