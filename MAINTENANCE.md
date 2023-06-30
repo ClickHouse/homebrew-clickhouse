@@ -98,3 +98,16 @@ Use `brew livecheck ...` and `brew bump-formula-pr ...` to automatically detect 
 - once all checks are green, add `pr-pull` tag on the PR, this will trigger another action that will modify the formula, register the bottles in it, and will close (but **not** merge!) the PR; even though the PR will be shown as closed, the branch will be merged into `main` and the new version of the formula with bottles will be available to the users (they will need to do `brew update` to see the changes)
 - as a separate commit directly into `main` of the upstream:
   - adjust the relevant version number in `README.md` to reflect the changes
+
+## Manually updating a formula
+
+```
+brew tap clickhouse/clickhouse
+cd $(brew --repository clickhouse/clickhouse)
+export HOMEBREW_NO_INSTALL_FROM_API=1
+# copy latest formula and edit it
+# brew install --verbose --build-from-source clickhouse/clickhouse/clickhouse@23.5 # for verification, doesn't bottle
+brew install --build-bottle clickhouse/clickhouse/clickhouse@23.5 && brew bottle clickhouse/clickhouse/clickhouse@23.5
+# make a new release with `gh release create`, then upload the bottle
+# push formula to homebrew
+```
