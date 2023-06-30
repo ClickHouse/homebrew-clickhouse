@@ -6,9 +6,5 @@
     "clickhouse@22.4",
     "clickhouse@22.3",
     "clickhouse@22.2",
-    "clickhouse@22.1",
-    "clickhouse@21.12",
-    "clickhouse@21.11",
-    "clickhouse@22.3-altinity-stable",
-    "clickhouse@21.8-altinity-stable"
+    "clickhouse@22.1"
 ]
