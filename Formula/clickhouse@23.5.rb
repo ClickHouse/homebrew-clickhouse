@@ -14,8 +14,9 @@ class ClickhouseAT235 < Formula
   end
 
   bottle do
-    root_url "https://github.com/ClickHouse/homebrew-clickhouse/releases/download/clickhouse@22.7-22.7.2.15"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5c12020235e35f2061ba8b7acd711fe9b0d2ac7e94b45750899af316c8ca06c5"
+    rebuild 1
+    root_url "https://github.com/ClickHouse/homebrew-clickhouse/releases/download/clickhouse@23.5.3.24"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bd956fe1a6a27658c0e80ee98099d4840643533e99bd6293e4f3d9d75c33838d"
   end
 
   depends_on "cmake" => :build
